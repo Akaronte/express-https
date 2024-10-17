@@ -12,12 +12,13 @@ const options = {
 // Create an Express application
 const app = express();
 
-// Set up a basic route
+// Set up a route to serve the index.html file
 app.get('/', (req, res) => {
-  res.send('Hello, HTTPS world!');
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Create an HTTPS server
 https.createServer(options, app).listen(3000, () => {
   console.log('HTTPS server running on port 3000');
+  console.log('https://localhost:3000');
 });
